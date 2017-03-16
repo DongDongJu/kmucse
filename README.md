@@ -18,6 +18,7 @@ professor | [우종우](http://eecs.kookmin.ac.kr/site/computer/laboratory.htm#1
 lecture name | Web information processing application
 :----:|----
 professor | [강승식](http://nlp.kookmin.ac.kr/sskang/index.html)
+note | [note](WebIPA/note.md)
 
 
 
