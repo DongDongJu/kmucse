@@ -49,18 +49,18 @@ feature 는 다른 오브젝트를 부를때 특징점이 될 수 있는 것들�
 나(교수님) 바쁘다. 대학원 수업 준비를 많이 못한다.  수업준비를 그만큼 많이 할 수 없다. 그래서 고민이 많다. 넋두리..
 미국과 유럽의 중간쯤? 우리가 찾아가서 물어봐야한당.
 
-###카이제곱
+### 카이제곱
 
 학점이 있다. 자료구조가 있고 농구가 있을 떄 컴퓨터공학부 학생 100명의 자료구조 수업의 학점과 농구 학점의 연관성이 있을까? 
 있다고 가정하면 연관성이 얼마나 있느냐? 자료구조랑 파이썬을 다시 예로보면 이전의 연관성보다 후의 연관성이 높지 않을까? 
 
-###text categorization
+### text categorization
 
 linguistic features 와 non-linguistic features 로 나누어짐 후자는 폰트 문서 포맷 같은걸 의미
 
 
 
-###Information gain
+### Information gain
 이 단어가 이 클래스에서 갖는 중요도를 계산 하겠다.
 purity 를 계산하는 것
 
@@ -68,10 +68,10 @@ purity 를 계산하는 것
 
 before 엔트로피 - after의 yes or no 엔트로피를 해서 구함
 
-###Entropy
+### Entropy
 impurity 를 계산하는 것
 
-###MEMM ( Maximum ent marcov model )
+### MEMM ( Maximum ent marcov model )
 각자를 보는 것이 아니라 전체를 보는 것
 전체적으로 엔트로피를 구했을때 달라지는 경우가 있음
 
