@@ -29,5 +29,7 @@ note | [note](WebIPA/note.md)
 
 <br>
 
+### Study
 
+03,2017 ~ Linux kernel code review [note](Linux_study/note.md)
 
