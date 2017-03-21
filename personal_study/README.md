@@ -107,3 +107,61 @@ well as provide avenues for qualitatively new advances.
 * LTP ( Linux Test Project ) 통과함
 
 * Anonymous reverse mapping , file reverse mapping 
+
+
+> 03.21.2017
+
+### Scalable Address Spaces Using RCU Balanced Trees
+
+* working set 현재 프로세스 전용으로 할당된 물리적 메모리 페이지 그룹
+
+* page fault -> hard fault + soft fault
+
+* soft page fault -> working set 이 아닌 물리적 메모리상에 요청하는 페이지가 있기 때문에 메모리를 엑세스 하면 해결이 되는 fault
+
+* hard page fault -> 요청하는 페이지가 메모리상에 없기 떄문에 디스크에 요청하는 것 
+
+* concurrency -> 프로그램을 I/O를 수행하는 여러 개의 쓰레드로 구현하는 것을 의미함. 
+
+* RCU (Read-Copy-Update) -> 읽기 동작에서 blocking 되지 않는 read/write 동기화 매커니즘
+
+* write 가 10% 이상인 경우에는 다른 것을 선택하는 것이 좋음 [RCU-MC]( http://jake.dothome.co.kr/rcu/ )
+
+* RCU 베이스의 binary-balanced tree for storing memory mappings 을 제시함
+
+* 2.6.37 linux kernel 과 80코어 환경에서 실험해서 그 결과를 증거로 제시
+
+* 이 논문은 x86-64 four-level page table 기준으로함, 그러나 아이디어는 x86 에 국한되지 않음
+
+
+![Alt text](./imgs/04.png)
+
+
+* 대부분의 시스템은 프로세스당 한개의 read/write 락을 사용하고 있음.
+
+* 위 사진에서 하나의 프로세스에 한개의 락이 있을때 어떻게 page fault 가 진행되는지 과정을 볼 수 있음.
+
+* bonsai tree 를 이용해서 해결했음
+
+* RCU 를 모든 주소공간 스페이스에 적용하기에는 방법이 존재하지 않음.
+
+* MOSBENCH, Dedup from Parsec 
+
+* Serialization 이란 객체를 memory 에서 sequence of bits 로 바꾸는 것, serialization 된 후에 네트워크에서 이동하고, 프로그램간 정보로 교류가 되기도함. 다른 말로 marshalling 이라고 하기도 합니다.
+
+* red-black tree -> 트리에 n 개의 원소가 있을 때 O(log n ) 으로 삽입, 삭제 , 검색이 가능 
+
+* 윈도우 7 은 PFN lock 을 사용함
+
+* bonsai 트리는  insert 와 delete에 대해서 read lock 을 없앤것
+
+* single write lock 은 여전히 사용함
+
+ 
+![Alt text](./imgs/05.png)
+
+
+* single rotation 이 일어났을때 Z 를 못	보고 X,Y 까지 내려가는 경우가 생김, bonsai tree 는 이것을 해결함
+
+* cache coherence -> 캐시 일관성 공유메모리를 가질때 각 프로세스별 일관성을 지켜야함
+
