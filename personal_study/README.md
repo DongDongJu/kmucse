@@ -172,3 +172,35 @@ well as provide avenues for qualitatively new advances.
 저 비유 상황에서라면, GAN의 목적이 "최고의 연금술사 만들기"라는 점을 짚고 들어가시면 좋을 것 같습니다. 간단히 GAN의 과정을 다음과 같이 요약한다면 --- 진짜 금괴 몇개를 먼저 연금술사에게 보여주고, 비슷한거 만들어보라고 시켜놓고, 금괴감별사를 초빙해서 만들어낸것과 오리지날 금괴를 비교하게 해서 피드백을 연금술사에게 준다. 무한반복 --- 고된 훈련을 통해 연금술사는 점점 감별사가 구별하기 힘든 것을 양산하게 되겠지요. 결국 저 셋팅을 마련한 사람의 목적은, 초짜 연금술사가 마침내 처음 시작한 오리지날 금괴같은것(구별불가능한 것)을 양산하는 마스터 연금술사가 되길 기대한다는 점이라고 생각합니다
 
 ***
+
+
+> 03.22.2017
+
+
+### 이어서
+
+* 만약 rock-free reader 가 업데이트 전에 tree 에 접근하려고 하면 old-tree 를 접근하게 된다.
+
+* bounded-balance tree 에서 착안을 받아서 만들었으며 weight 를 파라미터로 사용하기 때문에, 이때문에 기존 strictly balance tree 보다 rotation 이 적어짐
+
+![Alt text](./imgs/06.png)
+
+* C로 함수형 프로그래밍 하듯이 짯음
+
+* 모든 트리의 노드는 위의 4가지 필드를 가짐
+
+* insert 가 일어나면 insert 가 끝나기 전까진 reader 는 old 값들만을 읽게됨
+
+* tree 를 reconstruct 할 때에 mkBalanced 라는 함수를 사용함
+
+* balancing 이 끝난 트리는 지우지만, 만약 그 동안에 lookup 중이라면 모두 끝난 후에 invaild 시킴
+
+![Alt text](./imgs/07.png)
+
+* 위의 (b) 를 봤을 때 mKbalanced 의 non-destructive rotate 를 볼 수 있음.
+
+* VMA ( Virtual Memory Areas ) 란 workset 들이 존재하는 공간을 얘기하는듯? 확인필요함
+
+* 리눅스는 process 단위로 read / write lock 을 적용함
+
+
