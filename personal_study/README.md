@@ -203,4 +203,33 @@ well as provide avenues for qualitatively new advances.
 
 * 리눅스는 process 단위로 read / write lock 을 적용함
 
+> 03.23.2017
+
+* mmap_sem -> read/write per process , protects address space
+
+* Page dir. lock -> spinlock per process , protects Page dir, entries
+
+* PTE lock -> spinlock per page table , protects Page table entries
+
+* spinlock -> 진입이 불가능할 때 진입이 가능할 때 까지 루프를 돌면서 재시도하는 방식으로 구현된 락, 락을 획득할때까지 해당 스레드가 빙빙 돌고있다 (spinning)는 것을 의미함.
+
+* 리눅스는 이중 잠금을 사용해서 락의 frequence 와 duration 을 줄이려고 했음.
+
+* 그 예로 리눅스의 page fault handler 는 존재하지 않는 페이지 디렉토리 entries 를 관찰 한 후에만 페이지 디렉토리 lock 을 획득하고, 심지어 새 페이지 테이블에 대한 메모리를 많이 할당한 후에만 lock 을 획득함. 이 동시에 page fault 가 그 동안 페이지 디렉토리 entry를 채우면, 할당된 페이지 테이블을 단순히 버린다. -> double-check lock 때문
+
+* 어떤 일이 있더라도 page fault 가 일어났을때 다른 thread 가 해당 주소에 접근이 불가능하기 때문에 매우 큰 문제임. heavy fault 일때는 더 심함.
+
+* fault locking -> 메모리 write mode 에서 mmap sem 의 read / write lock 을 보유하는 시간을 줄여 soft page fault가 read-only part 와 동시에 실행 가능하게 하는 것
+
+* hybrid locking/RCU -> hardware page table 구조와 각각의 VMA entries 에 RCU 를 적용해서 soft page fault 의 필요성을 없앴음.
+
+* 이제 설명
+
+* fault locking 을 위해서 fault lock 을 each memory space에 추가했고 page fault handler 가 read mode 에서 이 lock 을 acquire 하게 만들었음.
+
+* write mode 일때는 똑같음 그러나 만약 write mode 일때 page fault handler 와 conflict 가 일어나게 된다면  fault lock 을 요구하게 된다.
+
+* fault lock 은 mmap_sem 이 released 되었을 때만 released 된다.
+ 
+
 
