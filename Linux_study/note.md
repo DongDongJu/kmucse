@@ -1,4 +1,4 @@
->03.18.2017
+> 03.18.2017
 
 ###init/main.c 
 
@@ -19,3 +19,15 @@ http://jake.dothome.co.kr/ 공부하기
 ARMv7-A의 페이징은 크게 Short-descriptor translation과 Long-descriptor translation 두 종류로 나뉩니다. Long-descriptor translation은 큰 물리 메모리를 지원하는 LPAE(Large Physical Address Extension) 기능
 
 efi_init()
+
+> 03.24.2017
+
+* arm_memblock_init(mdesc) -> kernel text 랑 kernel data 랑 initrd 를 메모리에 init 하는 함수
+
+* memblock_is_region_memory -> 메모리 블록에 arg로 들어오는 base + size 가 mem block 안에 존재하는지 확인하는 함수
+
+* memblock_is_region_reserved -> base+size 가 예약된 영역에 침범하는지 확인하는 함수
+
+* memblock_add_range -> 새로운 memblock region 을 예약하는 함수
+
+
