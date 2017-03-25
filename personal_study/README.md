@@ -232,4 +232,3 @@ well as provide avenues for qualitatively new advances.
 * fault lock 은 mmap_sem 이 released 되었을 때만 released 된다.
  
 
-
