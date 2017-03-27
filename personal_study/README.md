@@ -231,4 +231,82 @@ well as provide avenues for qualitatively new advances.
 
 * fault lock 은 mmap_sem 이 released 되었을 때만 released 된다.
  
+* Hybrid locking/RCU 설명
 
+* 얘네의 목적은 page fault handler 를 memory mapping operation과 다른 page fault 까지 모두 동시에 일어나도록 하는것임
+
+* 얘네의 방법은 read lock 을 없앤것 (RCU 를 이용함)
+
+* 제안하는 방법은 어떤 address space 에 관한 structural change를 가하지 않음.
+
+> 03.27.2017
+
+* VMA split race 설명
+
+* page fault 는 segfault 일 수 있고, fault 주소를 포함하도록 확장되어야 하는 stack 영역에 있거나 VMA 분할 중간에 있을 수 있습니다.
+
+* mmap_sem 이 저 problem 들을 control 할 수 있게 acquire 해놈
+
+![Alt Text](./imgs/08.png)
+
+* 위 그림에서 보는 것 처럼 분할 중에 메모리 영역이 매핑되지 않은 상태로 일시적으로 나타날 수 있기 때문에 발생함
+
+* munmap operation은 VMA를 2개의 VMA 로 나눌때 아래의 2스탭을 실행한다.
+
+* 그림을 보면 어떤 문제인지 이해 가능
+
+* Page table deallocation race 설명
+
+* page directories 와 tables 은 vma 가 fault 났을때 mapping 을 새로하는 도중에 empty page directory entry 를 만났을 때만 새로 allocate 된다.
+
+![Alt Text](./imgs/09.png)
+
+* 위 과정에서 2가지 문제가 있음
+
+* 첫번쨰는 classic RCU : unmap 이 concurrent fault 때문에 사용중인 VMA, table , directories 를 비울 수 있는데, 이걸 해결하기 위해서 RCU delay 를 이용했음
+
+* Page table fill race 
+
+* stock linux 나 hybrid locking/RCU 에서는 fault 와 mapping free 사이의 경쟁을 해결하지 못한다.
+
+* 만약 같은 VMA 에 대해서 page fault 와 munmap 이 같이 일어났다고 가정해보자.
+
+* munmap 이 이미 faulting address 를 넘어갔을때 page table 은 faulting 난 address 를 free 하지 못하고 기다려야한다.
+
+* 그리고 그 이후에 그 entry 자체를 clear 해버린다.
+
+* 그렇게 되면 concurrent page fault 는 blank page directory 를 바라보고 있게되고 얘네는 새로운 page가 allocate 되야겠구나라고 생각한 후 완전 새로운 page를 가져오게 된다.
+
+* 이건 간단하게 detect 할 수 있다.
+
+* PTE lock 을 적용 하면 page table entry 가 채워지는걸 protect 하게 된다. 그러나 그걸 진짜로 채우기 전에는 page fault handler 는 doulbe-check 하게 된다 faulting 상태인지 아닌지
+
+* Pure RCU
+
+* 보통 OS는 virtual memory areas 를 tree에 보관함
+
+* 그러나 일반적으로 사용하는 Red-black tree 나 AVL 은 RCU safe 하지 못하다.
+
+* 이유는 만약 lock-less lookup 도중에 insert 와 delete가 같이 들어올경우 lookup failing 이 일어나게 된다.
+
+* BONSAI tree는 이거를 해결함 
+
+![Alt Text](./imgs/10.png)
+
+* 이제 뭘 구현했는지 알려줌
+
+* current implementation 은 regular soft page fault in anonymous memory mapping 을 handle 함
+
+* 5가지로 증명함
+
+1. Can application scalability be limited by boottlenecks in the implementation of address spaces? 
+
+2. Do the techniques proposed in this paper eliminate those bottle-necks?
+
+3. Is a simple fine-grained locking approach sufficient to remove the bottlenecks or is RCU necessary?
+
+4. Are short-duration read-locks acceptable in the soft page fault handler, or is the complete application of RCU necessary for scalability?
+
+5. Are application workarounds still necessary to achieve peak scalability?
+
+* 다시 읽어보장
