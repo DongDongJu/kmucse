@@ -109,7 +109,7 @@ well as provide avenues for qualitatively new advances.
 * Anonymous reverse mapping , file reverse mapping 
 
 
-> 03.21.2017
+> 03.21.2017, 03.28.2017
 
 ### Scalable Address Spaces Using RCU Balanced Trees
 
@@ -132,6 +132,8 @@ well as provide avenues for qualitatively new advances.
 * 2.6.37 linux kernel 과 80코어 환경에서 실험해서 그 결과를 증거로 제시
 
 * 이 논문은 x86-64 four-level page table 기준으로함, 그러나 아이디어는 x86 에 국한되지 않음
+
+* mmap 이랑 munmap 의 시스템 콜을 memory mapping operation 이라고 부름
 
 
 ![Alt text](./imgs/04.png)
@@ -310,3 +312,17 @@ well as provide avenues for qualitatively new advances.
 5. Are application workarounds still necessary to achieve peak scalability?
 
 * 다시 읽어보장
+
+> 03.28.2017
+
+* false sharing -> align 이 strict 하게 적용되지 않은 구조체 들이 뭉쳐있을때 
+
+* cache to cache 
+
+
+### perf c2c 확인
+
+### parsec 돌려보기
+
+
+

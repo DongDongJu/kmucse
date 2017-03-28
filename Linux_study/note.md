@@ -72,4 +72,10 @@ efi_init()
 
 * reserved memory 에 대한 것 한번 공부해와서 공유해보쟈
 
+> 03.27.2017
+
+* 리눅스는 virtual memory 를 4G를 사용함
+
+* virtual memory 와 physical memory 사이의 변환 시기 및 단계에 대해서 더 잘 알아야할 듯
+
 
