@@ -374,4 +374,11 @@ reboot
 ### parsec 돌려보기
 
 
+'''
+ubuntu 14.04 -> 16.04 upgrade
 
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+sudo apt-get install update-manager-core
+sudo do-release-upgrade
