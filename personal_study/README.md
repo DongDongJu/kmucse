@@ -315,12 +315,61 @@ well as provide avenues for qualitatively new advances.
 
 > 03.28.2017
 
-* false sharing -> align 이 strict 하게 적용되지 않은 구조체 들이 뭉쳐있을때 
+* false sharing -> align 이 strict 하게 적용되지 않은 구조체 들이 뭉쳐있을때 ex) 64비트 운영체제에서 65비트짜리 구조체가 캐싱되어있으면 이다음 자료구조와 겹쳐서 서로 방해가 일어 날 수 있음.
 
-* cache to cache 
-
+> 03.29.2017
 
 ### perf c2c 확인
+
+* high level 에서 여러가지의 결과를 보여줌
+
+* cachelines 에서 false sharing 이 어디서 detect 되었는지
+
+* 캐시라인에 대한 reader, writer 정보와 이 access 들이 어디서 occurred 되었는지
+
+* reader 와 writer 에 대한 pid ( process id ) , tid ( thread id ) , instruction addr , function name , binary object ( debug 플래그를 넣고 컴파일 해야되나? )
+
+* source file 이랑 line number for each reader and writer
+
+* cachelines 를 load 하는데 평균 load latency
+
+* cacheline 이 생성된 샘플과 관련된 cpu가 어느 numa 노드에 있는지
+
+
+***
+
+* NUMA ( Non-Uniform Memory Access ) 란
+
+* 메모리 설계 방법중의 하나, 각각의 프로세서에 독립적인 별도의 메모리를 제공하는 것, 매우 가깝게 연결된 컴퓨터 클러스터, 하나 이상의 프로세서가 동일 데이터를 필요로 하는 경우에 NUMA 시스템은 메모리 뱅크들 사이로 데이터를 이동시켜야 하는 경우가 발생하고, 이런 동작은 NUMA 의 성능을 떨어뜨리는 요인이다.
+
+* SMP ( Symmetric Multiprocessing) 이란
+
+* 두 개 이상의 프로세서가 한 개의 공유된 메모리를 사용하는 다중 프로세서 컴퓨터 아키텍쳐
+
+* perf install 방법
+
+* linux kernel 4.10 부터 지원가능
+
+* ubuntu linux kernel update 
+
+* (ubuntu kernel mainline)[http://kernel.ubuntu.com/~kernel-ppa/mainline]
+
+'''
+
+wget \
+
+kernel.ubuntu.com/~kernel-ppa/mainline/v4.11-rc3/linux-headers-4.11.0-041100rc3_4.11.0-041100rc3.201703192331_all.deb \
+
+kernel.ubuntu.com/~kernel-ppa/mainline/v4.11-rc3/linux-headers-4.11.0-041100rc3-generic_4.11.0-041100rc3.201703192331_amd64.deb \
+
+kernel.ubuntu.com/~kernel-ppa/mainline/v4.11-rc3/linux-image-4.11.0-041100rc3-generic_4.11.0-041100rc3.201703192331_amd64.deb
+
+sudo dpkg -i linux-headers-4.11*.deb linux-image-4.11*.deb
+
+reboot
+
+
+
 
 ### parsec 돌려보기
 
