@@ -428,4 +428,22 @@ sudo do-release-upgrade
 * 자원이 효율적으로 활용되지 않음. 당연함 왜냐하면 스태틱이니까 
 
 * 라이센스 문제에 대해서 잠시 얘기함 ( 듀얼라이센스 ? ) mit 랑 gplv2 -> 이건 사용하면 소스코드를 반드시 공개해야함₩
+
+* tf 의 전신 distbelif , tf dev summit 2017 video 찾아보장
+
+* tf variable , placeholder ... 소개함 session 실행 안시키면 결과 안나온다는 얘기를 계속 해주심
+
+* 그래프 만들고 -> seseion 에 바인드해서 실행시켜주면 결과 데이터 나옴
+
+* XLA ( Accelerated Linear Algebra ) experimental 한 stage [ref](https://www.tensorflow.org/performance/xla) -> for performance
+
+* tensorflow 컴파일 과정 한번 살펴보자 -> 최종적으로 실행되는건 c++ 오브젝트이기 때문에 뭔가 python->c++ object or R or go 를 위한 compiler 가 특수하게 작성되어 있을듯?
+
+* tf2xla -> tensor graph to xla graph -> tensor node 를 따라가면서 확인해서 xla object로 만들어서 graph 재생성
+
+* JIT 얘기두함 pypy 같이?
+
+* AOT ? ahead-of-time compilation -> 모바일 사이즈를 위해서 
+
 ### parsec 돌려보기
+
