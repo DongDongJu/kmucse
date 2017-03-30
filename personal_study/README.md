@@ -370,10 +370,6 @@ reboot
 
 
 
-
-### parsec 돌려보기
-
-
 """
 ubuntu 14.04 -> 16.04 upgrade
 
@@ -384,3 +380,52 @@ sudo apt-get install update-manager-core
 sudo do-release-upgrade
 
 """
+
+> 03.30.2017
+
+* 오늘은 매니코어 4차년도 워크샵 왔음
+
+* [site link](http://manycoreos.synology.me/MediaWiki/index.php?title=2017-01_workshop#2017-01_Workshop)
+
+* 서울대의 스파크 발표가 인상적이였음. configuration 을 자동으로 해주는 미들웨어를 만들었음
+
+* 건국대 -> core affinity 관련된 연구진행중 올해안에 결과 내줄꺼임
+
+* thunder_cp 뭐징 -> 하드웨어임 나중에 검색해보쟝
+
+* sflinux, manycore patch 할꺼다
+
+* 부산대 연구 : cloud haskell 을 위한 고차 함수 개발할꺼당
+
+* 지금 파이프라인을 UX를 편하게 만들겠다.
+
+* in memory 방식으로 바꿀생각 ( socket 기반에서 ) 
+
+* template haskell 이모징 -> 이게 목표임 
+
+* 슈어소프트에 무슨 공인인증을 받아야되는데 절차가 복잡함;
+
+* azalea OS -> 매니코어 OS
+
+* LWK , FWK 가 뭐지
+
+* 8~9월에 공개할꺼임 라이센스는 GPL 이랑 MIT 섞어쓸꺼임
+
+* 테스트배드 -> 400+코어 테스트베드 구축할꺼임 ( LWK *7 + FWK + IO offloading ) 
+
+* 하이퍼스레드 안키고 할꺼임
+
+* NVMe 설치해서 활용할 계획
+
+* 2단계에는 1000코어 이상 예상중
+
+* 이걸 위해서 이번 년차에 기존 LWK 최적화 부분 + LWK& FWK offloading 을 system call 기반으로 바꿀꺼임
+
+* ssd 에서 읽어오는 걸 PCIe 이용해서 읽어오는걸 해볼려고함
+
+* LWK 는 one core ver thread and one core ver memory 한 코어엔 한 스레드랑 한 메모리만 써서 서로 contention 이 일어나지 않음
+
+* 자원이 효율적으로 활용되지 않음. 당연함 왜냐하면 스태틱이니까 
+
+* 라이센스 문제에 대해서 잠시 얘기함 ( 듀얼라이센스 ? ) mit 랑 gplv2 -> 이건 사용하면 소스코드를 반드시 공개해야함₩
+### parsec 돌려보기
