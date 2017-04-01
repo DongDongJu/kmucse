@@ -78,4 +78,12 @@ efi_init()
 
 * virtual memory 와 physical memory 사이의 변환 시기 및 단계에 대해서 더 잘 알아야할 듯
 
+> 04.01.2017
 
+* __rmem_check_for_overlap 이 함수에 대해서 보고있음
+
+* reserved_mem 이라는 static 변수가 나오는데 이 array 는 기존 regular 한 정보들 외에 dtb에 각각 들어있는 specified 한 memory 를 reserve 함
+
+* heap sort 가 커널에서는 quick sort 보다 낫다 왜냐하면 최악의경우 quicksort 는 최악의 경우 n^2 이고 externel memory 를 요구하기때문에 항상 nlogn 을 가지는 heapsort 가 커널에는 적합하다.
+
+* 오늘은 아빠 생일이라 집에감
