@@ -447,3 +447,9 @@ sudo do-release-upgrade
 
 ### parsec 돌려보기
 
+
+> 04.03.2017
+
+### Predicting_the_Memory_Bandwidth_and_Optimal_Core_Allocations_for_Multi-threaded_Applications_on_Large-scale_NUMA_Machines
+
+* 
