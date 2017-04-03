@@ -445,7 +445,6 @@ sudo do-release-upgrade
 
 * AOT ? ahead-of-time compilation -> 모바일 사이즈를 위해서 
 
-### parsec 돌려보기
 
 
 > 04.03.2017
@@ -482,8 +481,22 @@ sudo do-release-upgrade
 
 ![Alt Text](./imgs/11.png)
 
-### Predicting_the_Memory_Bandwidth_and_Optimal_Core_Allocations_for_Multi-threaded_Applications_on_Large-scale_NUMA_Machines
+* 음... 사실 multithread 어플리케이션은 어떤 binary 가 오느냐에 따라서 성능이 크게 좌우되는것 아닐까?
 
-* Nucore  라는걸 개발해서 memory bandwidth 를 core에 alloc 해주는 방법을 사용했음
+* 멀티코어 cpu 와 매니코어 cpu는 엄연히 다른것
+
+* 멀티코어는 하나의 cpu die에 여러개의 cpu를 집적해놓은 것
+
+* KNL ( KNights Landing ) -> 코어가 최대 72개이며 x86프로세서로 동작하는 부트 호스트 프로세서를 내장, 따로 호스트 cpu가 필요없다. 자체부팅 가능
+
+* Omni-Path Fabric -> 패키지 하나에 메모리까지 연결했음, 즉 온칩 메모리. 제온파이는 내장메모리 16gb를 이용해서 7.2gbps에 달하는 대역폭을 확보하고있음. MCDRAM을 썻다.
+
+* 제온파이는 이런 구조 때문에 HPC영역에서 병목현상을 일으키던 메모리 문제를 해결했다.
+
+* 
 
 
+
+### many core server configuration
+
+### PARSEC 돌려보기
