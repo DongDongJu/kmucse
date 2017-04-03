@@ -450,6 +450,40 @@ sudo do-release-upgrade
 
 > 04.03.2017
 
+* 연구실 데스크탑이 죽어서 16.04 & kernel 4.10.8 으로 재설치함
+
+### perf  설치
+
+* 버전에 맞는 커널 소스 다운로드 나같은 경우에는 4.10.8
+
+* perf make 할려면 flex 필요
+
+* sudo apt-get install flex
+
+* bison 도 필요
+
+* sudo apt-get install bison
+
+* make 로 들어가긴함
+
+* build 완료
+
+* 이전 perf 는 과감하게 sudo cp perf /usr/bin/. 로 지워버린다
+
+### perf example
+
+* https://github.com/joemario/perf-c2c-usage-files 클론
+
+* sudo perf c2c record -F 60000 -a --all-user sleep 5 이런식으로 실행하고 ( parms 는 유동적으로)
+
+* perf report 의 옵션을 활용해서 볼수있음
+
+* ex)
+
+![Alt Text](./imgs/11.png)
+
 ### Predicting_the_Memory_Bandwidth_and_Optimal_Core_Allocations_for_Multi-threaded_Applications_on_Large-scale_NUMA_Machines
 
-* 
+* Nucore  라는걸 개발해서 memory bandwidth 를 core에 alloc 해주는 방법을 사용했음
+
+
