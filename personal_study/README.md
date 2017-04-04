@@ -493,8 +493,39 @@ sudo do-release-upgrade
 
 * 제온파이는 이런 구조 때문에 HPC영역에서 병목현상을 일으키던 메모리 문제를 해결했다.
 
-* 
+* thread 를 loging 해서 재배열하는건 어때?
 
+![Alt Text](./imgs/12.png)
+
+* KNL 은 MCDRAM 의 모드를 3가지 제공함
+
+> 04.04.2017
+
+* cluster mode 에는 3가지가 있음
+
+* All-to-All -> 만약 L2 miss 가 일어나면 -> 모든 request를 distributed directory 에 보냄 -> directory miss 가 일어나면 memory 로 forwarding 함
+
+* Quadrant -> 칩을 4개의 virtual space 로 나눔 -> address 를 quadrants 의 디렉토리로 해쉬함 -> directory 와 메모리의 유연함을 가질수있음 -> All-to-All 보다 low latency 를 가짐
+
+* Sub-NUMA Clustering ( SNC ) -> NUMA 랑 똑같이 4개의 domain 으로 만들어서 OS 에서 그렇게 인식하도록함 -> 보기엔 4-socket  Xeon 으로 볼 수 있음 -> tile 과 directory 그리고 memory 사이의 유연성이 있음 -> local communication 이고 가장 적은 latency를 가지고 있지만, SW 가 NUMA에 optimize 시켜야함
+
+* mcdram 은 총 4개의 메모리 모델을 가짐 ( 01.2017 기준 )
+
+![Alt Text](./imgs/13.png)
+
+* 첫번쨰 Flat Mode -> 장점 : maximum bandwidth 와 latency performance 를 보장한다. 단점 : software 변경이 요구된다.(??), mcdram과 ddr hinders application flexibility 중에 선택해야 한다.
+
+![Alt Text](./imgs/15.png)
+
+* 두번째 cache Mode -> 장점 : software change 가 필요하지 않다. bandwidth benefit 이 있다 ( ddr-only 에 연관되어있음 ). 단점 : latency hit 이 ddr 까지 떨어짐 , 제한된 bandwidth , 모든 메모리가 ddr -> mcdram -> L2 로 간다. , less addressable 한 메모리
+
+![Alt_Text](./imgs/16.png)
+
+* 세번째 Hybrid Mode -> 장점과 단점은 얼마나 조합하느냐에 따라서 flat 과 cache 에 linear combination 하게 올라감
+
+![Alt_Text](./imgs/17.png)
+
+* 네번째 MCDRAM-only mode -> 장점 : Maximum bandwidth 랑 latency performance 를 가짐, 단점 : memory capacity 가 limited 됨
 
 
 ### many core server configuration
