@@ -539,11 +539,24 @@ sudo do-release-upgrade
 
 ### Heterogeneous Memory Management Framework
 
-* MEMKIND
+* MEMKIND -> FreeBSD 기반의 default heap manager 
 
 * HBWMALLOC -> implements easy model ( 메모리를 2개라고 생각하고 2가지 malloc을 쓰는 것 ) for KNL , fallback behavior 을 select 할 수 있음 when package memory 가 존재하지 않거나 exhausted 되었을때.
 
-*  
+* memkind_malloc or calloc or realloc 전부다 parameter 로 memkind_t 를 받음 -> 이게 mem 종류 즉 hybrid나 cached 이걸로 사용해야함
+
+* KNL 에서 PARSEC 을 뭔가 변형해서 올해 acm 에 제출
+
+* https://github.com/ParaGroup/p3arsec 나중에 확인해보기
+
+* 아이디어1 -> 한코어는 전체 캐시를 동기화만 한다. 나머지는 busy 상태가 바뀌기만을 기다린다 -> fault 가 일어나는 순간 페이지들을 전부 교체
+
+* 아이디어2 -> adaptive cache 를 이용하는 방법 -> behavior 예측이나 벡터화를 통한 예측 ( 딥러닝까지 응용 가능 )
+
+* mode changing 에는 rebooting 이 필요함
+
+* 결국에 한방에 모드 체인지는 불가능 -> 하지만 hybrid + x cluster 의 조합으로 충분히 유연한 policy를 가진 정책을 만들어볼 수 있을듯
+
 ### many core server configuration
 
 ### PARSEC 돌려보기
