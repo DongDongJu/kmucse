@@ -527,7 +527,25 @@ sudo do-release-upgrade
 
 * 네번째 MCDRAM-only mode -> 장점 : Maximum bandwidth 랑 latency performance 를 가짐, 단점 : memory capacity 가 limited 됨
 
+* 이제 이 두 메모리를 어떻게 manage 할까??
 
+* 쉬운 방법은 메모리를 2개라고 생각하고 2가지 malloc 을 쓰는 것 ( maybe flat mode )
+
+* advanced 한 모델은 memory menagement system 을 두는것
+
+* advanced model 은 knl에만 국한되는 것이 아니당!!(강조)
+
+* JEMALLOC + MEMKIND 은 long-standing software gap 을 해결했다.
+
+### Heterogeneous Memory Management Framework
+
+* MEMKIND
+
+* HBWMALLOC -> implements easy model ( 메모리를 2개라고 생각하고 2가지 malloc을 쓰는 것 ) for KNL , fallback behavior 을 select 할 수 있음 when package memory 가 존재하지 않거나 exhausted 되었을때.
+
+*  
 ### many core server configuration
 
 ### PARSEC 돌려보기
+
+* Linux의 process 는 pid thread는 tgid ( thread group id ) 로 관리
