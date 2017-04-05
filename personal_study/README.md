@@ -1,5 +1,3 @@
-> 03.20.2017
-
 ### Challenges and Opportunities in Many-Core Computing
 
 매니 코어 시스템에서의 전통적인 문제점들을 보여주는 논문
@@ -562,3 +560,17 @@ sudo do-release-upgrade
 ### PARSEC 돌려보기
 
 * Linux의 process 는 pid thread는 tgid ( thread group id ) 로 관리
+
+> 05.04.201
+
+* HBM ( High-Bandwidth Memory ) -> MCDRAM 이당
+
+* [ref](https://colfaxresearch.com/knl-mcdram/) -> MCDRAM 참조
+
+* bandwidth-critical -> 애플리케이션에서 가장 중요한 부분을 ( 예를 들어 가장 퍼포먼스에 중요한 역활을 끼치는 -> 많이 엑세스 되는 ) 영역 을 얘기한다.
+
+* 그렇다면 spm 에 맵핑하는 것 보다 훨씬 큰 부분들을 맵핑할 수 있기 때문에 좀더 다루기가 쉽지 않을까???
+
+***
+
+
