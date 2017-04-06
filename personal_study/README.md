@@ -561,7 +561,7 @@ sudo do-release-upgrade
 
 * Linux의 process 는 pid thread는 tgid ( thread group id ) 로 관리
 
-> 05.04.201
+> 05.04.2017
 
 * HBM ( High-Bandwidth Memory ) -> MCDRAM 이당
 
@@ -573,4 +573,37 @@ sudo do-release-upgrade
 
 ***
 
+> 06.04.2017 
 
+### Mostly-Optimistic Concurrency Control for Highly Contended Dynamic Workloads on a Thousand Cores
+
+* DB에 관한 논문인데 concurrency control 이 겹쳐서 한번 읽어보기로함, 간단하게 볼 계획
+
+* OCC ( Optimistic Concurrency Control ) -> 시스템에 적용되는 동시성 제어 방법, 여러 트랜잭션이 서로 간섭하지 않고 자주 완료 될 수 있다고 가정한다. 그래서 해당 자원에 대한 락을 획득하지 않고 데이터자체를 획득한다. 커밋하기 전에 각 트랜잭션은 다른 트랜잭션이 읽은 데이터를 수정하지 않았는지 확인한다. 확인 결과 충돌하는 수정사항이 발견되면 커밋 트랜잭션이 롤백되고 다시 시작 될 수 있다.
+
+* 그래서 여기서는 MOCC ( Mostly-Optimistic Concurrency Control ) 을 제안함. 
+
+* 여기 실험환경은 288 core 서버
+
+* 기존 OCC는 low overhead를  many core server에서 보여줬음 단, low-conflict/contention worklaods에서
+
+* OCC는 처리량을 크게 제한할 가능성이있다.
+
+* MOCC 는 OCC를 기반으로 만들어짐.
+
+***
+
+* 각각 스레드는 진행하고 만약 concurrency lock이 걸렸을 경우에 진행하다가 끝나면 다시 돌아와서 실행.
+
+* 상당히 많은 loop 가 필요할때 while 보단 for{;;} 가 효율이 더 좋다.
+
+* testmysite.withgoogle.com -> 자신의 사이트가 모바일 친화적인지 확인하는 툴
+
+* ARM 최신버전에서 syscall 을 call.S 가 아닌 syscall.tbl 로 관리함
+
+* 확인해봐야 할것 -> 현재 리눅스에서 instruction 이 execution될 때까지의 처리(?) 과정
+
+![Alt Text](./imgs/18.png)
+
+* MOCC의 overview임
+ 
