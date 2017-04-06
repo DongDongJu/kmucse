@@ -158,3 +158,57 @@ python도 공부하쉠
 * 미래의 AI 에 대한 키워드는 실제 환경을 가감없이 생각하고 느끼는 단계에 다달아야함
 
 * 흠... 수업의 정체성 혼란이 온다.
+
+> 06.04.2017
+
+* NLTK 가 모지? -> Natural Language Toolkit -> python library
+
+* stemming 이나 tokenizing 이나 이것저것 가능
+
+* 기본적인 사용법 , 특수한 사용법
+
+* 이걸 응용해서 워드 클라우드 하는법
+
+* pip install nltk , numpy
+
+* book download 후에 processing 하면댐
+
+* 이런저런 클래스가 있고 쫌 쉽게 데이터를 컨트롤 가능 
+
+* 텍스트를 일반화하는 과정을 스테밍이라고 부름 
+
+* Lemmatization
+
+* Tokenization
+
+* Named Entity
+
+* Classification
+
+* 발표가 너무 듣는사람을 의식하지 않았다고 뭐라고 하심
+
+* 강교수님이 NLTK 에 대해서 다시 설명해주심
+
+* treebanks , wordnet -> corpus
+
+*** nltk.org 가서 chapter 1, 3 해보기 
+
+* Brown corpus -> 유명한 코퍼스 
+
+* 워드나 토큰 여러개를 chunk 라고 함
+
+* 어떤 여러개? -> 명사구 ex) of 가 들어간 명사구 
+
+* 트리를 이용해서 파싱함 ( top-down or bottom-up )
+
+* policy 기준으로 하지만 자연어는 사실 policy 기반으로 하기엔 힘들다 -> phrase structure grammar
+
+* 지배소를 찾아야함
+
+* 지배소 -> 밥을 먹었다 -> 먹었다 
+
+* nltk 한번 해보기
+
+* wordnet -> 잘되어있음 한번 확인해봥 단어의 관계를 알려줌
+
+* 
