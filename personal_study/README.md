@@ -606,4 +606,57 @@ sudo do-release-upgrade
 ![Alt Text](./imgs/18.png)
 
 * MOCC의 overview임
- 
+
+> 06.04.2017
+
+### Is Parallel Programming Hard, And, If So, What Can You Do About It?
+
+* Is Parallel Programming Hard, And, If So, What Can You Do About It? 라고 시작함
+
+* shared-memory parallel machines 에서 programming 을 하기 위해서 읽으면 좋은 책
+
+* 단순한 프로그래밍은 이제 개나소나 다할꺼다 그니까 parallel programming 해랑
+
+* 이 책에서는 parallel programming 이 어려운걸 설명하는 것보다 왜 어려운지 설명하는 데에 초점을 맞출꺼다
+
+* 전통적으로 아래 5가지의 문제점이 있어왔음
+
+* 병렬시스템의 고비용과 희소성 ( The historic high cost an relative rarity of parallel systems ) 맞나..
+
+* 전형적인 researchers와 practitioners의 parallel system에 대한 경험 부족
+
+* 공개적으로 access 할 수 있는 병렬 코드의 부족성
+
+* 병렬 프로그래밍에 대해 널리 이해하는 엔지니어링 분야의 부족
+
+* shared memory 컴퓨터에서 처리속도에 비해 통신 오버헤드가 너무 큼
+
+* 최근엔 이 문제들이 해결되 가고있음
+
+* Parallel Programming 의 goals -> performance, productivity , generality
+
+* 첫쨰로 performance
+
+* ex ) scalability ( performance per CPU ) , efficiency ( performance per watt )
+
+* 둘쨰로 productivity
+
+* 하드웨어가 싸지고 있기때문에 더욱 중요해지고 있다.
+
+* 마지막으로 generality
+
+* c/c++의 locking plus threads 를 이용하는 방법
+
+* JAVA 도 있는데 별루임
+
+* MPI ( Message Passing Interface ) -> 위의 locking threads 를 이용하는 것보단 productivity 가 높다.
+
+* OpenMP -> performance에 가끔 limit 이 걸리긴 하지만 MPI 나 C/C++로 프로그래밍 하는 것보다 훨씬 쉽다.
+
+![Alt Text](./imgs/19.png)
+
+* productivity 와 performance generality 를 보여주는 사진
+
+* SQL ( Structured Query Language ) -> 이건 database 에 주로 사용되지만 performance 는 꽤 좋다 TPC ( Transaction Processing Performance Council ) benchmark result 에서
+
+* Productivity 는 완전 좋다. 
