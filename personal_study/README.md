@@ -660,3 +660,45 @@ sudo do-release-upgrade
 * SQL ( Structured Query Language ) -> 이건 database 에 주로 사용되지만 performance 는 꽤 좋다 TPC ( Transaction Processing Performance Council ) benchmark result 에서
 
 * Productivity 는 완전 좋다. 
+
+> 10.04.2017
+
+* 어제 밤 오늘해서 과제끝냄 ㅠ 다음부턴 미리미리 해야지
+
+* memkind api 살펴보는중임
+
+* 엥 메모리 모드는 3개였는데 11가지 타입을 사용함
+
+* MEMKIND_DEFAULT -> standard memory ( 아마 DDR을 얘기하는듯 ) + default page table size
+
+* MEMKIND_HUGETLB -> standard memory + huge pages ( 시스템 config에서 huge table config 가 따로 필요하다고함 )
+
+* MEMKIND_GBTLB -> standard memory + giga byte huge pages ( 이것도 똑같이 필요 )
+
+* MEMKIND_INTERLEAVE -> 하드디스크에서 쓰는 방법인데 성능을 높이기위해(?) 섹터들을 나누어서 배열하는걸 인터리브드 라고함, 즉 거대한 페이지를 모든 NUMA 노드에 interleaved 해서 배열해 놓고 이걸 하나의 큰 페이지로 쓰는 방법인듯 -> 확인이 필요함
+
+* MEMKIND_HBW -> HBW memory에 allocate 하는것 만약 모자라면 단순히 errno 을 뱉음 -> 근데 이게 가능한가? 페이지 fault 가 나야하는게 정상아닌가 가상화 시켜놓는건가
+
+* MEMKIND_HBW_HUGETLB -> HBM + huge table 이하동문
+
+* MEMKIND_HBW_PREFERRED -> HBW와 다르게 만약 allocate 실패하면 DDR 에 자동 allocate
+
+* MEMKIND_HBW_PREFERRED_HUGETLB -> 위에것 + huge table
+
+* MEMKIND_HBW_GBTLB -> MEMKIND_HBW와 같은데 GB table을 위한 것 ( 굿 use case -> reallocs 를 사용하는 거고 gb_realloc_example.c 를 보면 알 수 있다고함)
+
+* MEMKIND_HBW_PREFERRED_GBTLB -> 위와 같음 그러나 allocate 실패하면 ddr에 자동 allocate
+
+* MEMKIND_HBW_INTERLEAVE -> 위의 일반 interleave 와 같음 근데 이렇게하면 성능이 왜 높아지지 이따 수업갔다와서 고민해보자
+
+* 그렇다면 MEMKIND_HBW_INTERLEAVE 모드로 되어있을때 메모리를 어떤식으로 나누는지 확인해봐야할듯
+
+* 일단 memory 가 interleave 될때 어떤식으로 나눠지는지 확인해봐야해서 KNL에 memkind설치중
+
+* memkind example 폴더에 merge request 날려볼려구함
+
+* 메모리 인터리빙이란? 성능을 높이기 위해 데이터가 서로 인접하지 않도록 배열하는 방법
+
+* example 만들어서 merge 요청 보냈음
+
+* 
