@@ -607,7 +607,7 @@ sudo do-release-upgrade
 
 * MOCC의 overview임
 
-> 06.04.2017
+> 06.04.2017 , 10.04.2017
 
 ### Is Parallel Programming Hard, And, If So, What Can You Do About It?
 
@@ -659,7 +659,13 @@ sudo do-release-upgrade
 
 * SQL ( Structured Query Language ) -> 이건 database 에 주로 사용되지만 performance 는 꽤 좋다 TPC ( Transaction Processing Performance Council ) benchmark result 에서
 
-* Productivity 는 완전 좋다. 
+* Productivity 는 완전 좋다.
+
+* 어떤것들이 pararell 프로그래밍을 어렵게하나
+
+* work partitioning -> 일을 나누기 어렵다 스레딩 or 멀티프로세싱하기 어렵다.
+
+
 
 > 10.04.2017
 
@@ -701,4 +707,41 @@ sudo do-release-upgrade
 
 * example 만들어서 merge 요청 보냈음
 
-* 
+
+> 10.05.2017
+
+* 엥 travis 빌드 fail 남 이따가 확인해볼것
+
+### Is Parallel Programming Hard, And, If So, What Can You Do About It?
+
+* Chapter 3 Hardware and its Habits
+
+* cpu는 하드웨어적 한계에 부딪힐 수 밖에 없다.
+
+* ex) old and new cpu , meets a pipeline flush , memory reference , atomic operations
+
+* memory barriers
+
+* cache misses
+
+* io comletion
+
+* chapter 4 Tools of the Trade
+
+* shell script, posix , gcc classic atomic operation , c11 atomic operation , per-thread variable ..
+
+* Chapter 5 Counting
+
+* Eventually consistent implementation
+
+* per-thread-variable-based implementation
+
+![](./imgs/20.png)
+
+* 각각 계산해서 read 할때 락걸고 합침
+
+* 여기까지 static counter 였고
+
+* Approximate Limit Counter
+
+* 어쨋든 스레드로 나눠서 진행하게 되면 무조건 동기화하는 시간이 필요함
