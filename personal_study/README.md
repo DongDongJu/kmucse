@@ -745,3 +745,57 @@ sudo do-release-upgrade
 * Approximate Limit Counter
 
 * 어쨋든 스레드로 나눠서 진행하게 되면 무조건 동기화하는 시간이 필요함
+
+> 11.04.2017
+
+* memkind 에 example 커밋함 ㅎㅎㅎㅎ
+
+### Is Parallel Programming Hard, And, If So, What Can You Do About It ?
+
+* Chapter 6
+
+* Partitioning and Synchronization Design
+
+* Dining Philoshphers Problem 부터 얘기하고 있음
+
+![](./imgs/21.png)
+
+* Double-Ended Queue는 몇가지로 나눠짐
+
+* Left-and Right-Hand Locks
+
+![](./imgs/22.png)
+
+* Compound Double-Ended Queue
+
+![](./imgs/23.png)
+
+* Hashed Double-Ended Queue
+
+* Partitioning Example Discussion
+
+* Speedup , Contention , Work-to-Synchronization Ration , Read-to-Write Ratio , Complexity 를 고려해야함
+
+* 예를 들어 10개의 cpu는 1개의 cpu를 10개 돌릴때의 시간의 1/10 보다 적게 소비해야 이득이다.
+
+* cpu가 많다고 무조건 좋은게 아니당 -> 당연함
+
+* primitives 가 가드하는데 오버헤드가 높다면 primitives를 줄이는게 가장 좋은 방법임
+
+* 결국엔 read write lock
+
+* Sequential Program
+
+* code locking
+
+* data locking
+
+* data ownership
+
+* Locking Granularity and Performance
+
+* Parallel fastpath -> Reader/Writer Locking , RCU , Hierarchical Locking , Allocator Caches
+
+* Reader / Writer Locking -> 주로 POSIX 써서함
+
+* 
