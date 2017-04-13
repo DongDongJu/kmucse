@@ -798,4 +798,67 @@ sudo do-release-upgrade
 
 * Reader / Writer Locking -> 주로 POSIX 써서함
 
-* 
+> 13.04.2017
+
+* coarse-grain , fine-grain -> 어떠한 프로세스를 잘게 쪼개느냐 아니면 굵게 쪼개서 뭉뚱그려 놓느냐 전자가 coarse , 후자가 fine
+
+* Hierarchical Locking -> 계층락 -> 특정상황에서만 괜찮음
+
+* Resource Allocator Caches
+
+* Parallel Fastpath for Resource Allocation
+
+* cpu는 각각의 cache 를 가지고 있고 large code-locked shared pool for additional block 을 가지고 있음.
+
+* 한개의 cpu가 독점하는 것을 막기위해서 기본적으로 limit 한다.
+
+![](./imgs/24.png)
+
+* Data Structures
+
+![](./imgs/25.png)
+
+*  non-NULL pointers 갯수보다 cur 은 항상 1 작다.
+
+* Allocation Function
+
+* real world 에선 좀 다르다
+
+![](./imgs/26.png)
+
+* PWQ ( Parellel Work Queue )
+
+* Locking~~~~
+
+* 기본적으로 많은 락들이 계층락, deadlock-detection , Locking-friendly data structure 를 쓰고있다.
+
+* 일부 문제는 멍청하게 디자인된 프로그램에서만 일어난다.
+
+* Deadlock
+
+![](./imgs/27.png)
+
+* deadlock senario
+
+* 데드락을 recover 하는것보다는 안생기게 하는 것이 중요하다.
+
+![](./imgs/28.png)
+
+* 몇가지 데드락을 피하기위한 방법을 커널에서 이런것들을 쓴다.
+
+* Locking Hierarchies
+
+* Local Locking Hierarchies
+
+![](./imgs/29.png)
+
+* Layered Locking Hierarchies
+
+![](./imgs/30.png)
+
+* 경우에 따라서 cmp() 의 어셈 레벨 변환이 필요하긴 하지만 이건 deadlock 을 피하기 위해서 지불하기엔 작은 pay 라고 적혀있음.
+
+* 하지만 계층이 계속생기면 복잡해져서 별로임
+
+* Locking Hierarchies and pointers to locks
+
