@@ -87,3 +87,37 @@ efi_init()
 * heap sort 가 커널에서는 quick sort 보다 낫다 왜냐하면 최악의경우 quicksort 는 최악의 경우 n^2 이고 externel memory 를 요구하기때문에 항상 nlogn 을 가지는 heapsort 가 커널에는 적합하다.
 
 * 오늘은 아빠 생일이라 집에감
+
+
+> 15.04.2017
+
+* 올만에옴ㅎㅎ
+
+* dma 때문에 cma 관련 소스 보는중
+
+* _pa -> virtual address to physical address
+
+* bit 연산에 대해서 공부해야될듯
+
+* cypher 에서 dma 를 쓰기도함 virtual 메모리나 cma region 이용해서 속도를 늘리기도함
+
+* 커널 누수 탐지기가 있는것 같음
+
+* kernel garbage collection 찾아보기
+
+* order_per_bit: Order of pages represented by one bit on bitmap.
+
+* arm 은 pgd -> pmd -> pte 의 세단계 페이지테이블을 관리함
+
+* cr -> control register
+
+* 느낌표 두개 -> smp_on_up 이unsigned int 니까 느낌표를 하나 붙이면 true 가 하나로 표시가 안댐 그래서 두개붙임
+
+* cache default 설정이 있고 이걸 바꿔주는게 추가적으로 더있음
+
+* xscale -> armv5 기반으로 만들어진 intel 꺼
+
+* LPAE( Large Page Address Extension ) 
+
+* 오늘 한것 : reserved 메모리 영역 확인후 init 하고 ( cma 영역도 확인 )  -> page table bit 들 확인하는법 ( arm_reference ) ->  page table init 하다가 끝남
+
