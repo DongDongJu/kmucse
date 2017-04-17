@@ -862,3 +862,12 @@ sudo do-release-upgrade
 
 * Locking Hierarchies and pointers to locks
 
+> 17.04.2017
+
+### 오늘은 그냥 distributed shared memory 에 대해서 공부함
+
+* 나눠져 있는 메모리를 하나의 메모리공간처럼 사용하는 방법
+
+* 그렇다면 이거의 반대방법은 없을까? 하나의 메모리를 각각 코어로 나누어주는 방법
+
+* 
