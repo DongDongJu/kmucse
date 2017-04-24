@@ -1,4 +1,4 @@
-> 22.04.2017
+> 24.04.2017
 
 ### 셤공부 시작
 
@@ -10,9 +10,11 @@
 
 * AI 란 ? 사람의 지적행동을 컴퓨터가 모방할 수 있도록 하는 과학/공학 분야
 
-* 너무 재미없어서 두번쨰 pdf 부터 진행하고 이건 제일 나중에 보겠음
+* 어떻게 AI 에 접근할 것인가 ( Knowledge-based랑 data-driven-Approach) 가 있음
 
-* Search 란
+* 이거 뒤엔 걍 AI 의 과거 현재 미래 얘기
+
+### Search 란
 
 * 문제 찾는 방법
 
@@ -74,21 +76,34 @@
 
 * 첫 베스트 노드를 맨뒤로 보냄
 
+![](./imgs/04.png)
+
 ## Branch and Bound ( BB )
 
 * BFS 가 더 나음
 
 ## Astar algorithm
 
+* f(n) = g(n) + h(n)
+
+* g(n) 은 start 에서 현재 노드까지 거리
+
+* h(n) 은 노드에서 골까지의 거리
+
+* f(n)은 스타트에서 골까지의 추산거리라고 볼수 있음
+
 * 골까지의 f()을 이용해서 찾아감 BFS 랑 비슷
 
-* 이거 나올듯 나중에 다시보기
+* [참고](https://www.slideshare.net/MoonLightMS/1113-a-star)
 
 ## Adversary Search - Game search
 
 * Mini-max algorithm
 
 * 뭔소린지 모르겠음
+
+* [참고](http://www.aistudy.com/heuristic/adversarial_search_nilsson.htm)
+
 
 ### KR ( Knowledge Representation ) Reasoning 
 
@@ -118,11 +133,15 @@
 
 * 걍 데이터를 심볼표현법을 사용해서 표현하는법 이것도 pdf 봐보기
 
+* some 을 조심해야함 can 일경우에 E , ^ 둘다사용 아닐경우에 ^만 사용
+
 ## Resolution
 
 * 위에거 가지고 계산해서 결과 도출하는거 걍 한번 보면됨
 
 * Resolution 이랑 non-resolution 에 대한 장단점이 나와있음 pdf 확인
+
+* resolution 으로 검증하기 ( 한번 해보기 )
 
 ## Production system
 
@@ -134,7 +153,9 @@
 
 * Interpreter ( Interface Engine ) -> PM 과 WM 을 이용하는 인터페이스
 
-## SEMENTIC Network 
+* forward 와 backward 방법이 있음
+
+## SEMENTIC Network
 
 * 데이터를 노드랑 링크로 표현하는 법
 
@@ -145,6 +166,9 @@
 ### AI language
 
 * 걍 예제보기
+
+* SWI Prolog , CLIPS , LISP 있음
+
 
 ### Problem Solving
 

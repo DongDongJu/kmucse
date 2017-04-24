@@ -995,7 +995,7 @@ sudo apt-get install -y build-essential m4 x11proto-xext-dev libglu1-mesa-dev li
 
 source env.sh
 
-./modify_pod_file.sh
+[./modify_pod_file.sh](../personal_project/parsec_modify/modify_pod_file.sh)
 
 /pkgs/libs/uptcpip/src/include/sys/bsd__types/h line 96~106 까지 주석처리
 
@@ -1005,3 +1005,6 @@ parsecmgmt -a run -p all
 ~~~~
 
 * [compile issue](https://yulistic.gitlab.io/2016/05/parsec-3.0-installation-issues/)
+
+
+
