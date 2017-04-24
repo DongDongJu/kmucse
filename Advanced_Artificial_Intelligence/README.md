@@ -172,6 +172,60 @@
 
 * 첫상태 , 원하는 결과, 액션 을 이용해서 진행
 
-* 
+* plan 이란 -> 시작부터 goal state 까지 sequential한 steps나 actions 를 의미함
 
+* Planning system ( planner ) 에 initial state , goal state , operator /actions 를 넣으면 plan 이 나오고 이걸 execute 시키면 만족시키는 goal 이 나옴
 
+## Approaches to Planning 
+
+* 클래식한건 nonhierarchical , hierarchical 그리고 Recent 는 opportunistic , Incremental , Re-planning , Dynamic Planning ...
+
+* hierarchical planning 이란 전체적인 skeleton plan 을 짜고 각 sub goal 을 만족시켜가면서 최종 goal 로 가는 것
+
+* non hierarchical planning 이란 하나의 플랜을 가지고 하나의 골을 향해서 가는 것
+
+* 여기부턴 걍 pdf 볼것
+
+### Uncertainty Management & Expert System
+
+* 전문가들이 데이터에 대한 정의를 해놓은 시스템
+
+* Data structure + Algorithm = Program , Knowledge + inference = System
+
+* system architecture 
+
+![](./imgs/01.png)
+
+![](./imgs/02.png)
+
+* Overview of how to build expert system
+
+* 볼드체만 쓰겠음 , analysis , knowledge model , KR and Architecture, Coding, TESTING
+
+## Uncertainty 
+
+* 세상의 데이터는 uncertainty 함
+
+# CF ( Certainty Factor )
+
+* Large data 의 부족과 reasoning 을 설명해야하는 필요성에서 개발됨
+
+* CF(X) = MB(X) - MD(X)  -1.0 ~ +1.0 의 범위사이
+
+* MB ( Measure of Belief ) 말그대로
+
+* MD ( Measure of Disbelief ) 말그대로
+
+* If P1(CF1) and P2(CF2); Then R(CFr) 일경우 CFr = MIN( CF1, CF2 ) * CFr
+
+* If P1(CF1) or P2(CF2); Then R(CFr) 일경우 CFr = MAX( CF1, CF2 ) * CFr
+
+![](./imgs/03.png)
+
+* example 이따가 풀어보면 될듯
+
+## Bayesian Learning
+
+* uncertainty 한 문제에대해서 예측으로 해결
+
+* pdf 보기
