@@ -959,3 +959,49 @@ sudo do-release-upgrade
 * RIP 레지스터는 현재 수행중인 명령의 address를 가리키는 레지스터임
 
 * RIP 레지스터 값과 32비트 operand 를 통해서 64비트 주소공간을 나타낼 수 있음.
+
+> 24.04.2017
+
+## 연구실 서버 접속
+
+~~~~
+
+1. ~~~ 접속
+2. 로그인
+이전에 remote
+3. remote control -> start remote control
+
+~~~~
+
+
+## PARSEC3.0 compile error
+
+* core 버전 다운로드 받음 [link](http://parsec.cs.princeton.edu/parsec3-doc.htm)
+
+* 압축풀고
+
+* 필요한 패키지 설치
+
+* [link](https://gumdaeng.com/2014/06/26/parsec-3-0-installation-solution-for-build-error/) [link2](https://yulistic.gitlab.io/2016/05/parsec-3.0-installation-issues/) 참조
+
+
+~~~~
+
+sudo apt-get install make gcc g++ m4 libxi-dev libxmu-dev libxt-dev libxext-dev libx11-dev libtbb-dev pkg-config gettext
+
+sudo apt-get install libxi-dev libxmu-dev libxt-dev libxext-dev libx11-dev
+
+sudo apt-get install -y build-essential m4 x11proto-xext-dev libglu1-mesa-dev libxi-dev libxmu-dev libtbb-dev
+
+source env.sh
+
+./modify_pod_file.sh
+
+/pkgs/libs/uptcpip/src/include/sys/bsd__types/h line 96~106 까지 주석처리
+
+parsecmgmt -a build -p all
+
+parsecmgmt -a run -p all
+~~~~
+
+* [compile issue](https://yulistic.gitlab.io/2016/05/parsec-3.0-installation-issues/)
