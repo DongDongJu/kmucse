@@ -121,3 +121,23 @@ efi_init()
 
 * 오늘 한것 : reserved 메모리 영역 확인후 init 하고 ( cma 영역도 확인 )  -> page table bit 들 확인하는법 ( arm_reference ) ->  page table init 하다가 끝남
 
+
+> 29.04.2017
+
+* SWAP memory 를 arm 에서 기본제공하는 것만으로는 다 커버칠 수 없으니까 linux 만의 pg table attribute 를 적용시킴
+
+* shared bit 설정을 해주고 나중에 inner cache outer cache line 설정으로 어떤 레벨까지 share 할 수 있을지 결정함
+
+* PXN bit excuting 못하게 설정해주는 bit
+
+* 하드웨어 pt 과 linux pt 에 들어갈 properties 정리
+
+* prepare_page_table -> pmd 랑 lowmem 초기화
+
+* git blame 이라는 명령어가 있음 파일에 대한 변화 과정을 살펴볼 수 있는 것
+
+* TTBRC 라는 레지스터가 있음 -> 이 레지스터를 통해서 하드웨어랑 linux 의 페이지 테이블 접근 방법이 달라짐
+
+* pfn ( page frame number )
+
+
