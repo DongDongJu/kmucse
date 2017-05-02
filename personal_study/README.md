@@ -1007,4 +1007,67 @@ parsecmgmt -a run -p all
 * [compile issue](https://yulistic.gitlab.io/2016/05/parsec-3.0-installation-issues/)
 
 
+> 25.04.2017
 
+### 시험끗~
+
+
+## userid 만들기
+
+~~~~
+
+useradd name -m -s /bin/bash
+
+userdel -r name
+
+~~~~
+## PARSEC 확인
+
+* full version 받아서 빌드~
+
+## running script 만들기
+
+* date 사용법 확인
+
+* running script 만들었음
+
+* graph 그리는거 만들었음
+
+* 뭔가 부하가 걸리는 구간이 있는듯
+
+
+> 26.04.2017
+
+* 설문조사 해서 냈음
+
+* parsec roi 적용 ( gcc-hooks ) 해서 컴파일중 결과 봐야함
+
+* tmpfs 봐야함
+
+### texlive 설치
+
+~~~~
+
+sudo add-apt-repository ppa:jonathonf/texlive
+
+sudo apt update
+
+sudo apt install texlive-full
+
+~~~~
+
+
+* bamos 꺼 parsec 에 parsecmgmt 900 번째 줄에 문제가 있음, 지우고 했더니 빌드중
+
+* 실행됨 매크로에 시간찍는거 추가해보자
+
+* gcc-hook 적용된 걸로 example 돌려봄
+
+* parsecmgmt -a run -p all -c gcc-hooks -i native -k -n 90 >> run_all_sample.txt
+
+
+> 02.05.2017
+
+### GANs 로 만들꺼 데이터좀 찾아보쟝
+
+ 
