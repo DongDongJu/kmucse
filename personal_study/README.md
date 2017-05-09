@@ -1257,3 +1257,11 @@ sudo apt install texlive-full
 
 * 2~4% 정도의 성능향상을 이루었음 SPEC CPU2006 벤치마크 기준
 
+### Multi-threaded memory management 
+
+* [link](https://www.google.com/patents/US9135183)
+
+## Abstract
+
+* 꼭 다운받아서 읽어보자
+
