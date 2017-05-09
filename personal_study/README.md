@@ -1189,3 +1189,71 @@ sudo apt install texlive-full
 
 * 논문 3개 골랐음
 
+> 09.05.2017
+
+### 과제 시작
+
+* abstract 다적었음 
+
+* 이따가 업로드 하장
+
+* 잠시 시간이 비어서 내 논문관련해서 좀 찾아보기루함
+
+### Scalability-based manycore partitioning
+
+* [link](http://dl.acm.org/citation.cfm?id=2370833)
+
+## Abstract
+
+* 멀티코어에서 매니코어로 바뀌어가고있다
+
+* 단일 시스템에서 여러 멀티스레드 프로그램이 실행되는 일이 잦아지고있음
+
+* 일반적으로 각 스레드는 기본 논리코어수와 비교해서 코어만큼 실행하거나 코어보다 많은 수의 스레드를 만들어냄
+
+* 하지만 각 프로그램은 서로 다른 확장성을 가지고 있을 뿐더러 공유 리소스에 대한 경쟁이 심해지게됨
+
+* 따라서 OS 스레드 스케쥴링이 높은 시스템 성능을 만족하는데 중요한 역활을 수행하는 것이 분명함
+
+* 해당 논문에서는 하드웨어 성능 모니터링 장치를 이용해서 프로그램의 확장성을 동적으로 예측하고
+
+* 각 프로그램에 할당할 최적 코어수를 결정하며
+
+* 프로그램에 코어를 할당하는 스케쥴러를 개발하였다.
+
+* 리눅스 스케쥴러보다 개선된 효과를 보이는걸 보여준다.
+
+* 꼭 읽어볼것
+
+### Processes and Resource Management in a Scalable Many-core OS
+
+* [link](https://www.usenix.org/legacy/event/hotpar10/tech/full_papers/Klues.pdf)
+
+## Abstract
+
+* ROS 라고 하는 새로운 운영체제를 제안함
+
+* 이 os 의 목표는 병렬 프로그램을 위한 더 나은 지원을 제공하는 것
+
+* 수천개의 코어로 커널을 확장하는 것
+
+* 프로세스 모델과 리소스 관리 알고리즘에 중점을 둔 논문임
+
+* Space-time partitioning 을 이용해서 했음 관련 연구가 있는듯 
+
+* 보호 도메인은 리소스 매니징과 결합되어서는 안되며 자원 분할이 반드시 자원 할당과 겹치지 않아야합니다.
+
+* 꼭 읽어볼것
+
+### Threaded Dynamic Memory Management in Many-Core Processors
+
+* [link](http://ieeexplore.ieee.org/abstract/document/5447394/)
+
+## Abstract
+
+* 이것도 똑같이 시작함
+
+* 기존 소스나 calloc malloc free 등을 고칠 필요가없다
+
+* 2~4% 정도의 성능향상을 이루었음 SPEC CPU2006 벤치마크 기준
+
