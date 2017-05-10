@@ -1130,19 +1130,19 @@ sudo apt install texlive-full
 ### 몇개가 날아간것 같네;;
 
 * 어쨋든 그동안 코딩하고 과제하고 하느라 개인공부 제대루 못함
-	
+
 * 우분투를 mac 스타일로 바꾸는중 [macbuntu](https://www.youtube.com/watch?v=eVzYtlR_OH0)
 
 * 우분투에 pc 카카오톡 깔았음
-		 
+
 ### 웹 정보 프로그래밍 과제를 위해 데이터를 찾아보자
-		   
+
 * 미세먼지 예측 프로그램 만들꺼임
 
 * 자연적 원인 : 토양, 화산 , 꽃가루 , 산불 등등..
 
 * 인공적인 원인 : 난방, 발전(화학연료) , 자동차 등등..
-	
+
 * 배출의 원인에 따라서 1차 미세먼지와 2차 미세먼지가 있음
 
 * 1차 미세먼지 : 자동차, 발전소, 공장
@@ -1264,4 +1264,15 @@ sudo apt install texlive-full
 ## Abstract
 
 * 꼭 다운받아서 읽어보자
+
+> 10.05.2017
+
+#SIMD
+
+* 병렬 프로세서의 한 종류, 하나의 명령어로 여러 개의 값을 동시에 계산하는 방식
+
+* XMalloc 의 방식에 대해서 알아보려했는데 먼저 SIMD 에 대해서 쫌 알아야할듯
+
+### A Scalable Ordering Primitive with Invariant Hardware Clocks
+
 
