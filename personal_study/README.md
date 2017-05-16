@@ -1267,12 +1267,27 @@ sudo apt install texlive-full
 
 > 10.05.2017
 
-#SIMD
+# SIMD
 
 * 병렬 프로세서의 한 종류, 하나의 명령어로 여러 개의 값을 동시에 계산하는 방식
 
 * XMalloc 의 방식에 대해서 알아보려했는데 먼저 SIMD 에 대해서 쫌 알아야할듯
 
+> 16.05.2017
+
 ### A Scalable Ordering Primitive with Invariant Hardware Clocks
 
+## 참고
+
+* RDTSC(Read Time Stamp Counter)
+
+* fail-stop model
+
+## ORDO : A Scalable Ordering Primitive
+
+* 두개의 lemma를 주장했음
+
+* use case 를 여러개 만들었음
+
+# Oplog
 
