@@ -1291,3 +1291,26 @@ sudo apt install texlive-full
 
 # Oplog
 
+> 17.05.2017
+
+### PARSEC scalability 문제점 분석
+
+## [PARSECSs](./papers/PARSECSs.pdf)
+
+* OmpSs 라는걸 사용하는데 이걸 사용해서 기존 Pthreads | OpenMP 보다 성능이 잘나옴
+
+## OmpSs
+
+* 갑자기 궁금해져서 좀 살펴봄
+
+* 카탈루냐 대학교 박사 논문
+
+* superscalar cpu 에서 영향을 받았음
+
+* 프로그램을 이것처럼 커널에서 나눠서 인식할 수 있다면?
+
+* 런타임 인식이 필요함
+
+
+
+
