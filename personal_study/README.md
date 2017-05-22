@@ -1312,5 +1312,8 @@ sudo apt install texlive-full
 * 런타임 인식이 필요함
 
 
+> 22.05.2017
+
+* 옵티마이저는 어떨까???
 
 
