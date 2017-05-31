@@ -41,3 +41,11 @@ npm install -g parse-dashboard
 
 주말동안 한참 헤멨다...
 
+> 31.05.2017
+
+서버 + mongodb 이미지 만들기 ( 31.05.2017 )
+
+-	우분투 순정이미지 가져오기
+-	이미지에 parse-server 소스 빌드 & 몽고 db 설치
+-	작업한 이미지 저장 & push to hub.docker.com
+-	해당 이미지로 k-cloud 에 론칭
