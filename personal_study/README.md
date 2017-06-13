@@ -1340,4 +1340,8 @@ sudo apt install texlive-full
 
 * 불러오기와 저장하기 명령의 집합이 원자적 방법으로 실행할 수 있게 함으로써 병행성 프로그래밍을 단순하게 하는 방식.
 
+### StAdHyTM
+
+* transactional memory 에 대해서 좀더 알아보쟝
+
 
