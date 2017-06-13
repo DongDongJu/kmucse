@@ -1330,4 +1330,14 @@ sudo apt install texlive-full
 
 * PARSEC 을 먼저 살펴보는중
 
+> 13.06.2017
+
+## Tiny Directory
+
+* 내 주제랑 맞지않음
+
+## transactional memory
+
+* 불러오기와 저장하기 명령의 집합이 원자적 방법으로 실행할 수 있게 함으로써 병행성 프로그래밍을 단순하게 하는 방식.
+
 
