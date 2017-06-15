@@ -1344,4 +1344,9 @@ sudo apt install texlive-full
 
 * transactional memory 에 대해서 좀더 알아보쟝
 
+> 14.06.2017
+
+### 매니코어 시스템에 대한 서베이 논문
+
+
 
