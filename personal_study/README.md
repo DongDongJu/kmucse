@@ -1349,4 +1349,6 @@ sudo apt install texlive-full
 ### 매니코어 시스템에 대한 서베이 논문
 
 
+> 16.06.2017
 
+### NR 알고리즘
