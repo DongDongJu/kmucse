@@ -1352,3 +1352,13 @@ sudo apt install texlive-full
 > 16.06.2017
 
 ### NR 알고리즘
+
+> 21.06.2017
+
+* 학회 다녀옴
+
+### Black-box Concurrent Data Structures for NUMA Architectures
+
+* 대충 읽어봤는데 다시 각잡고 읽어야 할 듯
+
+
