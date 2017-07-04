@@ -61,11 +61,44 @@ KNL 메모리 타입이랑 뭔가 문제가있는듯.
 POSIX 사용
 
 
-~~
+~~~
 
+
+~~~
+# 04.07.2017
+
+SANL 소스 구해서 빌드시켜봄
+
+PAPI 랑 mpich 먼저 설치해야함
+
+~~~
+
+~~~
+# 05.07.2017
+
+PAPI 랑 MPICH 설치완료
+
+권한때매 애좀먹었당.
+
+benchmark set 빌드
+
+1. liblock ( 완료 )
+
+2. microbenchmark ( 완료 )
+
+3. Phoenix 2 ( 코어 에러 )
+
+4. memcached ( libmemcached-1.0.2/clients/memslap.cc 내컴에 맞게 )
+
+5. Berkeley DB ( 에러뜸 )
+
+일단 microbenchmark 만으로 실제 성능측정 확인해봐야할듯
+
+성능 향상이 눈으로 확인되면 커널에 포팅작업 고고
+			   
+~~~
 ### 해야 할일
 
 * KNL NUMA 구조고민
 
-* software transactional memory 에 대해서 쫌 알아보쟝
 

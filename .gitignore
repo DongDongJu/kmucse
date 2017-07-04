@@ -1,3 +1,7 @@
 *.txt
 *.DS_store
 *.swp
+*.o
+*.log
+
+personal_project/MANYCORE/benchmarks/
