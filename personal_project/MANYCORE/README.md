@@ -47,6 +47,18 @@ KNL 메모리 타입이랑 뭔가 문제가있는듯.
 
 그렇다면 critical section이 많은 프로그램이 주인가 적은 프로그램이 주인가
 
+문제가 있다.
+
+1. 만약 로컬 lock contention 자체가 길어질 경우에 server core 가 starving
+2. 만약 로컬 lock contention 이 지나치게 짧을 경우에 스위칭이 너무 자주 일어나서 이것도 좋지 않음
+
+결론적으로 threshold 를 적절하게 잘 찾는게 중요함 -> 기계학습을 이용해보면 어떨까?
+
+각 노드마다 node-cas-lock 이라는걸 쓰고있음
+
+[PAPI](http://icl.utk.edu/papi/) 라는 라이브러리를 써서 구현했음 (리얼 타임 하드웨어 데이터를 좀 더 쉽게 볼 수 있는 라이브러리, 비교적 최신에 구현된 거라 좋을듯?)
+
+POSIX 사용
 
 
 ~~
