@@ -30,7 +30,7 @@ ccNUMA( cache-coherent NUMA ) 라고 얘기한다.
 [Scalable Adaptive NUMA-Aware Lock](../../personal_study/papers/SANAL.pdf)
 ~~~
 
-~~
+~~~
 # 30.06.2017
 
 위에 논문 보다가 QD 라는걸 봐서 일단 QD 적용했을때랑 안했을때의 성능 차이를 확인해보려함
@@ -96,6 +96,18 @@ benchmark set 빌드
 
 성능 향상이 눈으로 확인되면 커널에 포팅작업 고고
 			   
+
+benchmark set run
+
+microbenchmark
+1. posix ( O )
+2. spinlock ( O )
+4. mcsm ( 에러 )
+5. mcs ( O )
+6. flat combining ( O )
+7. rclb ( O )
+8. rcl ( O )
+9. mwait ( 에러 )
 ~~~
 ### 해야 할일
 
