@@ -122,6 +122,49 @@ microbenchmark
 성능확인차 벤치마크 돌리는중
 
 ~~~
+
+## 10.07.2017
+
+# 오늘부터 memory 커널 소스 확인해볼려고함
+
+~~~
+mm/memory.c
+
+line 95 ~ 101 : 모든 x86 시스템은 direct map memory 위쪽에 high memory 가 존재한다고 가정하는 ioremap 을 가지고있다.
+max low pfn 이랑 highstart pfn 이 같을 수 밖에 없다. normal 이랑 highmem 의 차이는 없다.
+ioremap , iounmap -> 물리 메모리 주소를 가상 메모리 주소로 바꿔주는것 , 그반대
+
+line 105 ~ 110 : 랜덤한 주소 ( 스택, mmap , brk , 등등 )
+
+line 130 ~ 132 : CONFIG_MMU architecure 가 ZERO_PAGE 를 자기 paging_init() 에 셋팅한다.
+
+
+init/main.c
+
+set_task_stack_end_magic() -> .data 랑 .init_task 섹션으로 결정되는 init_task 를 가지고 overflow detection 을 위해서 메모리의 끝을 정해놈( STACK_END_MAGIC )
+smp_setup_processor_id() -> smp 를 위한 processor id 셋팅
+debug_objects_early_init() -> initial 에 필요한 object 들을 부팅 전에 셋팅해주는것 이 작업 이후에는 오브젝트 tracker 가 정상작동함
+
+boot_init_stack_canary() -> 스택 overflow 를 막기위한 방어책 정도로 생각하면 될듯
+cgroup_init_early() -> cgroup 을 초기화하고 subsystem ( early_init ) 도 초기화하고
+
+local_irq_disable() -> 현재 cpu irq 를 disable
+early_boot_irqs_disabled -> early_boot 의 irq 도 disable
+
+주석 : 인터럽트가 지금은 꺼져있지만 부팅시에 필요하다면 켜도됨
+
+boot_cpu_init() -> cpu 의 현재 상태 설정 ( online , active , present , possible ) 
+page_address_init() -> 메모리 변환을 위한 hash table 초기화 ( lock 도 같이 )
+setup_arch(&command_line) -> 너무 길어서 나눠서 가겠음 x86_64 기준
+
+memblock_reserve() 
+
+
+
+
+~~~
+
+
 ### 해야 할일
 
 * KNL NUMA 구조고민
