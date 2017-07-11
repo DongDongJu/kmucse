@@ -1366,3 +1366,10 @@ sudo apt install texlive-full
 ## 매니코어 서버의 NUMA 노드 관리 상태 확인
 
 * KNL 서버로 옮겨옴 
+
+
+> 11.07.2017
+
+* KNL에 벤치마크 돌리고 리눅스 소스 공부중
+
+* start_kernel 부터 보고있는데 멘탈이..
