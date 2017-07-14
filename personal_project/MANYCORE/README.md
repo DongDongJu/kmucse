@@ -123,7 +123,7 @@ microbenchmark
 
 ~~~
 
-## 10.07.2017
+## 10.07.2017 , 12.07.2018
 
 # 오늘부터 memory 커널 소스 확인해볼려고함
 
@@ -157,11 +157,46 @@ boot_cpu_init() -> cpu 의 현재 상태 설정 ( online , active , present , po
 page_address_init() -> 메모리 변환을 위한 hash table 초기화 ( lock 도 같이 )
 setup_arch(&command_line) -> 너무 길어서 나눠서 가겠음 x86_64 기준
 
-memblock_reserve() 
+memblock_reserve() , early_reserve_initrd() -> ramdisk 데이터를 읽어와서 init 함
 
+trap_init() , cpu_init() , ioremap_init() -> trap,cpu,ioremap 을 init
 
+olpc 관련된 코드가 이쪽에 있음
 
+root_dev, screen , edid(확장 디스플레이), video 모드 , bootloader 타입 ,version, 등을 여기서 결정해줌
 
+arch_setup -> platform 별 셋업이 이 함수 포인터로 이루어짐
+
+e820 셋팅이 여기서 이루어짐
+
+e820 이란 arm 이나 특정 하드웨어들은 각각 specified 된 설정을 사용하지만 pc(x86) 에서는 AX 에 e820 이라는 값을 확인하므로써 메모리 맵을 설정함.
+
+parse_setup_data -> data_type ( EFI,DTB,E820 ) 에 따른 셋팅을 해줌
+
+edd -> for old bios
+
+주석 : parse_early_param 전에 하드웨어가 NX 를 서포트 하는지 안하는지 검사함
+
+parse_early_param -> boot param 읽어옴
+
+hotplug 관련 셋팅도 이루어짐
+
+apic (advenced programmable interupt controller ) 셋팅도 여기
+
+pci 설정
+
+dmi 관련 설정 ( bus 인터페이스 )
+--
+
+mm_init_cpumask() -> 씨퓨 클리어
+
+setup_command_line -> 나중을 위해서 만들어놈
+
+setup_per_cpu_areas() -> cpu별 공간 allocate numa 관련 설정도 여기있음
+
+64 비트는 atom_size 로 PMD_SIZE 를 32는 PAGE_SIZE 를 씀
+
+그리고 여기서 
 ~~~
 
 
