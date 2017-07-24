@@ -196,11 +196,45 @@ setup_per_cpu_areas() -> cpu별 공간 allocate numa 관련 설정도 여기있�
 
 64 비트는 atom_size 로 PMD_SIZE 를 32는 PAGE_SIZE 를 씀
 
-그리고 여기서 
+smp_prepare_boot_cpu -> cpu 상태를 online 으로 만들어줌
+
+build_all_zonelists -> system booting 상태에서만 부를수있고, 노드별로 메모리 셋팅 ( 그래서 바이오스에서 밖에 접근이 안되는 거였음 )
+
+page_alloc_init -> cpu 상태 확인해서 init 함
+
+parse_early_param -> early param들을 파싱해서 처리해줌
+
+parse_args -> ~~~
+
+jump_label_init -> jump_label 을 소팅해서 설정해줌
+
+setup_log_buf -> 로그를 사용하기 위해서 buf 를 0 으로 셋팅해줌
+
+pidhash_init -> pid 를 사용하기위한 hash 셋팅
+
+vfs_caches_init_early -> vfs , dcache , inode 초기화하고
+
+sort_main_extable -> 커널에 빌트인 된 exception 테이블을 소팅 
+
+trap_init -> 일일히 exception 셋팅 해주고 , idt 테이블도 셋팅
+
+
+# EISA -> 버스의 일종
+
+
+mm_init -> page_ext_init_flatmem : 노드별로 버디 알고리즘을 이용 페이지의 range 가 넘치지 않는지 확인해줌 -> mem_init : pci를 위한 io mmu alloc , NUMA 상태일경우 상태를 가져옴
+
+
+# ASLR (Address Space Layour Randomization) -> 힙이랑 스택의 영역을 계속 바꿔주는 메모리 보호기법
+# DEP (Data Excution prventation) -> 데이터 영역에서 코드가 실행되는 걸 막는 기법
+# ASCII-armor -> 공유라이브러리 상위주소에 00을 포함시키는 기법 
+# canary -> 프로그램 내에 작은 값을 삽입시켜서 원본과 계속해서 비교 이상이 있을시에 변조당했다고 생각하기 위한 기법
+
+
 ~~~
 
 
 ### 해야 할일
 
-* KNL NUMA 구조고민
+* 코어별, 캐시별 피닝
 
